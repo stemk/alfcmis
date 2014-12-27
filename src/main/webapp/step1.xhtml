@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<h:head>
+	<title>AlfCmis - Session Parameter</title>
+	<f:event listener="#{sessionPar.initConversation}" type="preRenderView"></f:event>
+</h:head>
+<h:body>
+	<h1>AlfCmis - Session Parameter (step 1)</h1>
+	<h:form>
+		URL: <h:inputText value="#{sessionPar.url}" />
+		<br />
+		Binding: 
+		<h:selectOneRadio value="#{sessionPar.binding}">
+			<f:selectItems value="#{sessionPar.bindingItems}"/>
+		</h:selectOneRadio>
+		<br />
+		Username: <h:inputText value="#{sessionPar.username}" />
+		<br />
+		Password: <h:inputSecret value="#{sessionPar.password}" />
+		<br />
+		Authentication: 
+		<h:selectOneRadio value="#{sessionPar.auth}">
+			<f:selectItems value="#{sessionPar.authItems}"/>
+		</h:selectOneRadio>
+		<br />
+		Compression:
+		<h:selectOneRadio value="#{sessionPar.compression}">
+			<f:selectItems value="#{sessionPar.compressionItems}"/>
+		</h:selectOneRadio>
+		<br />
+		Client Compression:
+		<h:selectOneRadio value="#{sessionPar.clientCompression}">
+			<f:selectItems value="#{sessionPar.clientCompressionItems}"/>
+		</h:selectOneRadio>
+		<br />
+		Cookies:
+		<h:selectOneRadio value="#{sessionPar.cookies}">
+			<f:selectItems value="#{sessionPar.cookiesItems}"/>	
+		</h:selectOneRadio>
+		<br />
+		<h:commandButton action="#{sessionPar.loadRepo}" value="Load Repositories" />
+	</h:form>
+</h:body>
+</html>

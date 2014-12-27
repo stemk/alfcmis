@@ -10,4 +10,9 @@ public interface NodeFolder extends Node {
 
 	public List<Node> getChildren();
 
+	public String getParentId();
+
+	public boolean canCreateFolder();
+
+	public boolean canCreateDocument();
 }

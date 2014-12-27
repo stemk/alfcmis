@@ -21,13 +21,30 @@
 			<version>0.12.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.alfresco.cmis.client</groupId>
-			<artifactId>alfresco-opencmis-extension</artifactId>
-			<version>0.3</version>
+			<groupId>javax.faces</groupId>
+			<artifactId>javax.faces-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<finalName>alfcmis</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>

@@ -6,50 +6,47 @@ package org.stemk.alfcmis.cmis;
  */
 public class CmisParameters {
 
-	private final String username;
-	private final String password;
 	private final String url;
 	private BindingType bindingType;
+	private final String username;
+	private final String password;
 	private AuthType authType;
 	private boolean compression;
 	private boolean clientCompression;
 	private boolean cookies;
-	private boolean alfresco;
 	private String repositoryId;
 
-	private CmisParameters(String username, String password, String url,
-			BindingType bindingType, AuthType authType, boolean compression,
-			boolean clientCompression, boolean cookies, boolean alfresco,
+	public CmisParameters(String url, BindingType bindingType,
+			String username, String password, AuthType authType,
+			boolean compression, boolean clientCompression, boolean cookies,
 			String repositoryId) {
-		this.username = username;
-		this.password = password;
 		this.url = url;
 		this.bindingType = bindingType;
+		this.username = username;
+		this.password = password;
 		this.authType = authType;
 		this.compression = compression;
 		this.clientCompression = clientCompression;
 		this.cookies = cookies;
-		this.alfresco = alfresco;
 		this.repositoryId = repositoryId;
 	}
 
 	public static class Builder {
 
-		private final String username;
-		private final String password;
 		private final String url;
 		private BindingType bindingType = BindingType.ATOM_PUB;
+		private final String username;
+		private final String password;
 		private AuthType authType = AuthType.STANDARD;
-		private boolean compression = false;
+		private boolean compression = true;
 		private boolean clientCompression = false;
-		private boolean cookies = false;
-		private boolean alfresco = false;
+		private boolean cookies = true;
 		private String repositoryId = "";
 
-		public Builder(String username, String password, String url) {
+		public Builder(String url, String username, String password) {
+			this.url = url;
 			this.username = username;
 			this.password = password;
-			this.url = url;
 		}
 
 		public Builder bindingType(BindingType bindingType) {
@@ -83,19 +80,11 @@ public class CmisParameters {
 		}
 
 		public CmisParameters build() {
-			return new CmisParameters(username, password, url, bindingType,
+			return new CmisParameters(url, bindingType, username, password,
 					authType, compression, clientCompression, cookies,
-					alfresco, repositoryId);
+					repositoryId);
 		}
 
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public String getPassword() {
-		return password;
 	}
 
 	public String getUrl() {
@@ -106,6 +95,14 @@ public class CmisParameters {
 		return bindingType;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+	
 	public AuthType getAuthType() {
 		return authType;
 	}
@@ -118,10 +115,6 @@ public class CmisParameters {
 		return clientCompression;
 	}
 
-	public boolean isAlfresco() {
-		return alfresco;
-	}
-	
 	public boolean isCookies() {
 		return cookies;
 	}
@@ -133,5 +126,4 @@ public class CmisParameters {
 	public void setRepositoryId(String repositoryId) {
 		this.repositoryId = repositoryId;
 	}
-
 }
