@@ -8,3 +8,4 @@ release.properties
 .classpath
 .settings/
 .metadata/
+/nb-configuration.xml
